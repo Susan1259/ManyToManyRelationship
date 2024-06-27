@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\Downloads\\new_\\MyApplication.csproj": {}
+    "C:\\Users\\susan\\Downloads\\new_\\ManyToManyRelationship\\MyApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\Downloads\\new_\\MyApplication.csproj": {
+    "C:\\Users\\susan\\Downloads\\new_\\ManyToManyRelationship\\MyApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\Downloads\\new_\\MyApplication.csproj",
+        "projectUniqueName": "C:\\Users\\susan\\Downloads\\new_\\ManyToManyRelationship\\MyApplication.csproj",
         "projectName": "MyApplication",
-        "projectPath": "C:\\Users\\Asus\\Downloads\\new_\\MyApplication.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\Downloads\\new_\\obj\\",
+        "projectPath": "C:\\Users\\susan\\Downloads\\new_\\ManyToManyRelationship\\MyApplication.csproj",
+        "packagesPath": "C:\\Users\\susan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\susan\\Downloads\\new_\\ManyToManyRelationship\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\susan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.6, )"
@@ -94,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

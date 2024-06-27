@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using BCrypt.Net;
+
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MyApplication.Models;
@@ -7,7 +10,9 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
+
 namespace MyApplication.Controllers
+
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -29,9 +34,16 @@ namespace MyApplication.Controllers
             var user = _context.Users
         .Include(u => u.UserRoles)
         .ThenInclude(ur => ur.Role)
-        .FirstOrDefault(u => u.Username == model.Username && u.Password == model.Password);
+        .FirstOrDefault(u => u.Username == model.Username);
 
             if (user == null)
+            {
+                return NotFound(new
+                {
+                    message = "Username or password is not correct"
+                });
+            }
+            if (!BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
             {
                 return NotFound(new
                 {
@@ -53,12 +65,12 @@ namespace MyApplication.Controllers
             {
                 return BadRequest(new { message = "Username is already taken" });
             }
-
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);
             // Create new user entity
             var newUser = new User
             {
                 Username = model.Username,
-                Password = model.Password,
+                Password = hashedPassword,
                 UserRoles = model.RoleIds.Select(roleId => new UserRole { RoleId = roleId }).ToList()
             };
 
